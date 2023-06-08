@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💘</text></svg>">
+    <title>Aceita?</title>
+</head>
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .container{
+        display: flex;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+        background-color: #8b145a;
+    }
+
+    .options,.yes{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+    }
+
+    .options h1, .yes h1{
+        color: #fff;
+        text-shadow: 2px 2px #000;
+    }
+    .buttons{
+        margin-left: -50px;
+    }
+
+    .buttons button{
+        margin-top: 15px;
+        padding: 3px 15px;
+        background: #000;
+        color: #fff;
+    }
+
+    .buttons button:hover{
+        cursor: pointer;
+    }
+
+    #no-button{
+        position: absolute;
+    }
+
+    @media (max-width: 605px){
+        .options,.yes{
+            width: 70%;
+        }
+    }
+
+</style>
+
+<body>
+    <section class="container">
+
+        <div class="options">
+            <h1>Aceita Namorar Comigo? 🥺</h1>
+
+            <div class="buttons">
+                <button onclick="showYes()">Sim</button>
+                <button id="no-button">Não</button>
+            </div>
+        </div>
+
+        <div style="display: none;" class="yes">
+            <img width="150" height="150" src="https://i.pinimg.com/originals/4c/f3/aa/4cf3aa6cf9418a40b71bc71aa4298cf2.jpg" alt="">
+            <h1>💞 TE AMO! 💞</h1>
+        </div>
+
+    </section>
+
+    <script>
+        // Função para calcular aleatoriamente a posição do botão
+        function calcularPosicaoAleatoria() {
+          var button = document.getElementById("no-button");
+          var buttonWidth = button.offsetWidth;
+          var buttonHeight = button.offsetHeight;
+          var windowWidth = window.innerWidth;
+          var windowHeight = window.innerHeight;
+    
+          var maxX = windowWidth - buttonWidth;
+          var maxY = windowHeight - buttonHeight;
+    
+          var randomX = Math.floor(Math.random() * maxX);
+          var randomY = Math.floor(Math.random() * maxY);
+    
+          button.style.left = randomX + "px";
+          button.style.top = randomY + "px";
+        }
+    
+        var button = document.getElementById("no-button");
+        button.addEventListener("mouseover", function() {
+          calcularPosicaoAleatoria();
+        });
+        button.addEventListener("click", function() {
+          calcularPosicaoAleatoria();
+        });
+
+        function showYes() {
+            document.querySelector('.yes').style.display = 'flex';
+            document.querySelector('.options').style.display = 'none';
+        }
+
+      </script>
+  
+
+</body>
+</html>
